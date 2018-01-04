@@ -1,5 +1,7 @@
 # angular-study
 
+[![Build Status](https://travis-ci.org/akirakoyasu/angular-study.svg?branch=master)](https://travis-ci.org/akirakoyasu/angular-study)
+
 ## up
 
 ```bash

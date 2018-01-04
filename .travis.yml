@@ -1,0 +1,14 @@
+sudo: enabled
+
+install:
+  - ./scripts/yarn
+
+before_script:
+  - docker-compose up -d
+
+script:
+  - ./scripts/ng test --single-run --log-level=DEBUG
+  - ./scripts/ng e2e --verbose --host=angular
+
+after_script:
+  - docker-compose down
