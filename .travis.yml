@@ -1,5 +1,8 @@
 sudo: enabled
 
+before_install:
+  - sudo chown -R :1000 .
+
 install:
   - ./scripts/yarn
 
