@@ -1,0 +1,20 @@
+version: "3.4"
+services:
+  chrome:
+    image: selenium/standalone-chrome
+    volumes:
+      - /dev/shm:/dev/shm
+  angular:
+    image: akirakoyasu/angular-study
+    build: .
+    ports:
+      - 4200:4200
+    volumes:
+      - .:/var/lib/angular
+    working_dir: /var/lib/angular/my-app
+    command:
+      - ng
+      - serve
+      - --host
+      - 0.0.0.0
+      - --disable-host-check
