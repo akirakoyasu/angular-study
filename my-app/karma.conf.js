@@ -2,12 +2,24 @@
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
 module.exports = function (config) {
+  const remoteChromeLauncher = {
+    base: 'WebDriver',
+    config: {
+      hostname: 'chrome',
+      port: 4444
+    },
+    browserName: 'chrome',
+    chromeOptions: {
+      args: ["--headless", "--disable-gpu"]
+    }
+  };
+
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular/cli'],
     plugins: [
       require('karma-jasmine'),
-      require('karma-chrome-launcher'),
+      require('karma-webdriver-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma')
@@ -23,11 +35,15 @@ module.exports = function (config) {
       environment: 'dev'
     },
     reporters: ['progress', 'kjhtml'],
+    hostname: 'angular',
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    customLaunchers: {
+      'RemoteChrome': remoteChromeLauncher
+    },
+    browsers: ['RemoteChrome'],
     singleRun: false
   });
 };

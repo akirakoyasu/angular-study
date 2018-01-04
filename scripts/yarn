@@ -1,0 +1,4 @@
+#!/bin/bash
+set -exu
+
+exec docker-compose run --rm angular yarn "$@"
