@@ -1,6 +1,7 @@
 sudo: enabled
 
 before_install:
+  # for container user: node(1000)
   - sudo chown -R :1000 .
 
 install:
