@@ -5,8 +5,7 @@ services:
     volumes:
       - /dev/shm:/dev/shm
   angular:
-    image: akirakoyasu/angular-study
-    build: .
+    image: akirakoyasu/angular-cli
     ports:
       - 4200:4200
     volumes:
